@@ -8,17 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		AA79F01528732CCF0032495C /* TestyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F01428732CCF0032495C /* TestyApp.swift */; };
-		AA79F01728732CCF0032495C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F01628732CCF0032495C /* ContentView.swift */; };
+		AA79F01728732CCF0032495C /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F01628732CCF0032495C /* MenuView.swift */; };
 		AA79F01928732CD00032495C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA79F01828732CD00032495C /* Assets.xcassets */; };
 		AA79F01C28732CD00032495C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA79F01B28732CD00032495C /* Preview Assets.xcassets */; };
+		AA79F028287336D50032495C /* AllRecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F027287336D50032495C /* AllRecipesView.swift */; };
+		AA79F02A287336F40032495C /* FavoriteRecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F029287336F40032495C /* FavoriteRecipesView.swift */; };
+		AA79F02C2873370B0032495C /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F02B2873370B0032495C /* Recipe.swift */; };
+		AA79F02E2873381B0032495C /* TastyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F02D2873381B0032495C /* TastyService.swift */; };
+		AA79F0302873382D0032495C /* TastyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F02F2873382D0032495C /* TastyRepository.swift */; };
+		AA79F0322873389C0032495C /* TastyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F0312873389C0032495C /* TastyController.swift */; };
+		AA79F03428733F600032495C /* AllRecipesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F03328733F600032495C /* AllRecipesViewModel.swift */; };
+		AA79F03728735D6D0032495C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F03628735D6D0032495C /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AA79F01128732CCF0032495C /* Testy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Testy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA79F01428732CCF0032495C /* TestyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestyApp.swift; sourceTree = "<group>"; };
-		AA79F01628732CCF0032495C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AA79F01628732CCF0032495C /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		AA79F01828732CD00032495C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA79F01B28732CD00032495C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AA79F027287336D50032495C /* AllRecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRecipesView.swift; sourceTree = "<group>"; };
+		AA79F029287336F40032495C /* FavoriteRecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipesView.swift; sourceTree = "<group>"; };
+		AA79F02B2873370B0032495C /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		AA79F02D2873381B0032495C /* TastyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TastyService.swift; sourceTree = "<group>"; };
+		AA79F02F2873382D0032495C /* TastyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TastyRepository.swift; sourceTree = "<group>"; };
+		AA79F0312873389C0032495C /* TastyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TastyController.swift; sourceTree = "<group>"; };
+		AA79F03328733F600032495C /* AllRecipesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRecipesViewModel.swift; sourceTree = "<group>"; };
+		AA79F03628735D6D0032495C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +67,12 @@
 		AA79F01328732CCF0032495C /* Testy */ = {
 			isa = PBXGroup;
 			children = (
+				AA79F03528735D580032495C /* Utils */,
+				AA79F026287336B60032495C /* Data */,
+				AA79F025287336B00032495C /* Domain */,
+				AA79F024287336A40032495C /* UI */,
 				AA79F01428732CCF0032495C /* TestyApp.swift */,
-				AA79F01628732CCF0032495C /* ContentView.swift */,
+				AA79F01628732CCF0032495C /* MenuView.swift */,
 				AA79F01828732CD00032495C /* Assets.xcassets */,
 				AA79F01A28732CD00032495C /* Preview Content */,
 			);
@@ -65,6 +85,42 @@
 				AA79F01B28732CD00032495C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AA79F024287336A40032495C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				AA79F027287336D50032495C /* AllRecipesView.swift */,
+				AA79F03328733F600032495C /* AllRecipesViewModel.swift */,
+				AA79F029287336F40032495C /* FavoriteRecipesView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		AA79F025287336B00032495C /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				AA79F02D2873381B0032495C /* TastyService.swift */,
+				AA79F02B2873370B0032495C /* Recipe.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		AA79F026287336B60032495C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				AA79F02F2873382D0032495C /* TastyRepository.swift */,
+				AA79F0312873389C0032495C /* TastyController.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		AA79F03528735D580032495C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				AA79F03628735D6D0032495C /* Constants.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +193,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA79F01728732CCF0032495C /* ContentView.swift in Sources */,
+				AA79F01728732CCF0032495C /* MenuView.swift in Sources */,
+				AA79F0322873389C0032495C /* TastyController.swift in Sources */,
 				AA79F01528732CCF0032495C /* TestyApp.swift in Sources */,
+				AA79F0302873382D0032495C /* TastyRepository.swift in Sources */,
+				AA79F02A287336F40032495C /* FavoriteRecipesView.swift in Sources */,
+				AA79F03728735D6D0032495C /* Constants.swift in Sources */,
+				AA79F028287336D50032495C /* AllRecipesView.swift in Sources */,
+				AA79F03428733F600032495C /* AllRecipesViewModel.swift in Sources */,
+				AA79F02C2873370B0032495C /* Recipe.swift in Sources */,
+				AA79F02E2873381B0032495C /* TastyService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +344,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.Testy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GeoffreySaintGermain.Testy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -309,7 +373,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.Testy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GeoffreySaintGermain.Testy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
