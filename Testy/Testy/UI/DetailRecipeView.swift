@@ -24,7 +24,7 @@ struct DetailRecipeView: View {
                         .scaledToFill()
                         .layoutPriority(-1)
                 } placeholder: {
-                    Color.gray.opacity(0.9)
+                    ProgressView()
                 }
                 .frame(minWidth: 0, maxWidth: .infinity)
                 

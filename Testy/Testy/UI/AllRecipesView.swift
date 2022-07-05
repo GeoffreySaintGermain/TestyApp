@@ -30,7 +30,7 @@ struct AllRecipesView: View {
                                                 .scaledToFill()
                                                 .layoutPriority(-1)
                                         } placeholder: {
-                                            Color.gray.opacity(0.9)
+                                            ProgressView()
                                         }
 
                                         VStack(alignment: .leading) {
