@@ -8,13 +8,18 @@
 import SwiftUI
 
 struct FavoriteRecipesView: View {
+    
+    @ObservedObject var recipesViewModel: RecipesViewModel
+    
+    @State var selectedRecipe: Recipe? = nil
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        RecipesView(recipesViewModel: recipesViewModel, recipes: recipesViewModel.favorites)
     }
 }
 
 struct FavoriteRecipesView_Previews: PreviewProvider {
     static var previews: some View {
-        FavoriteRecipesView()
+        FavoriteRecipesView(recipesViewModel: RecipesViewModel())
     }
 }

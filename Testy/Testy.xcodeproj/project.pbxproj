@@ -17,8 +17,11 @@
 		AA79F02E2873381B0032495C /* TastyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F02D2873381B0032495C /* TastyService.swift */; };
 		AA79F0302873382D0032495C /* TastyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F02F2873382D0032495C /* TastyRepository.swift */; };
 		AA79F0322873389C0032495C /* TastyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F0312873389C0032495C /* TastyController.swift */; };
-		AA79F03428733F600032495C /* AllRecipesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F03328733F600032495C /* AllRecipesViewModel.swift */; };
+		AA79F03428733F600032495C /* RecipesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F03328733F600032495C /* RecipesViewModel.swift */; };
 		AA79F03728735D6D0032495C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F03628735D6D0032495C /* Constants.swift */; };
+		AA79F03928740B780032495C /* DetailRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F03828740B780032495C /* DetailRecipeView.swift */; };
+		AA79F03B287413230032495C /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F03A287413230032495C /* ShareSheet.swift */; };
+		AA79F03D28741EE50032495C /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F03C28741EE50032495C /* RecipesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,8 +36,11 @@
 		AA79F02D2873381B0032495C /* TastyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TastyService.swift; sourceTree = "<group>"; };
 		AA79F02F2873382D0032495C /* TastyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TastyRepository.swift; sourceTree = "<group>"; };
 		AA79F0312873389C0032495C /* TastyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TastyController.swift; sourceTree = "<group>"; };
-		AA79F03328733F600032495C /* AllRecipesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRecipesViewModel.swift; sourceTree = "<group>"; };
+		AA79F03328733F600032495C /* RecipesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewModel.swift; sourceTree = "<group>"; };
 		AA79F03628735D6D0032495C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		AA79F03828740B780032495C /* DetailRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRecipeView.swift; sourceTree = "<group>"; };
+		AA79F03A287413230032495C /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
+		AA79F03C28741EE50032495C /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,8 +97,10 @@
 			isa = PBXGroup;
 			children = (
 				AA79F027287336D50032495C /* AllRecipesView.swift */,
-				AA79F03328733F600032495C /* AllRecipesViewModel.swift */,
+				AA79F03328733F600032495C /* RecipesViewModel.swift */,
 				AA79F029287336F40032495C /* FavoriteRecipesView.swift */,
+				AA79F03828740B780032495C /* DetailRecipeView.swift */,
+				AA79F03C28741EE50032495C /* RecipesView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -119,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				AA79F03628735D6D0032495C /* Constants.swift */,
+				AA79F03A287413230032495C /* ShareSheet.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -200,8 +209,11 @@
 				AA79F02A287336F40032495C /* FavoriteRecipesView.swift in Sources */,
 				AA79F03728735D6D0032495C /* Constants.swift in Sources */,
 				AA79F028287336D50032495C /* AllRecipesView.swift in Sources */,
-				AA79F03428733F600032495C /* AllRecipesViewModel.swift in Sources */,
+				AA79F03B287413230032495C /* ShareSheet.swift in Sources */,
+				AA79F03D28741EE50032495C /* RecipesView.swift in Sources */,
+				AA79F03428733F600032495C /* RecipesViewModel.swift in Sources */,
 				AA79F02C2873370B0032495C /* Recipe.swift in Sources */,
+				AA79F03928740B780032495C /* DetailRecipeView.swift in Sources */,
 				AA79F02E2873381B0032495C /* TastyService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

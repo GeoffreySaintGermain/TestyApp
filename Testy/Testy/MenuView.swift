@@ -7,15 +7,20 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MenuView: View {
+
+    @State var showingSheet = false
+    
+    @StateObject var recipeViewModel = RecipesViewModel()
+    
     var body: some View {
         TabView {
-            AllRecipesView(allRecipesViewModel: AllRecipesViewModel())
+            AllRecipesView(recipesViewModel: recipeViewModel)
                 .tabItem {
                     Label("All", systemImage: "list.bullet")
                 }
-            
-            Text("Favorite Recipes")
+             
+            FavoriteRecipesView(recipesViewModel: recipeViewModel)
                 .tabItem {
                     Label("Favorites", systemImage: "heart")
                 }
@@ -26,6 +31,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MenuView()
     }
 }
