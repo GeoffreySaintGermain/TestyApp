@@ -12,6 +12,7 @@ class RecipesViewModel: ObservableObject {
     var tastyService: TastyService
     
     @Published var recipies: Result<TastyResponseRecipe, Error> = .success(TastyResponseRecipe(count: 0, results: []))
+    @Published var searchRecipies: Result<TastyResponseRecipe, Error> = .success(TastyResponseRecipe(count: 0, results: []))
     @Published var favorites: [Recipe] = RecipesViewModel.readFavoritesFromFile()
     
     private static let favoriteJsonFile = "favoriteRecipes.json"
@@ -24,6 +25,13 @@ class RecipesViewModel: ObservableObject {
     func fetchRecipies() {
         tastyService.recipeList(from: 0, size: 10, completion: { response in
             self.recipies = response
+        })
+    }
+    
+    // MARK: Search functions
+    func searchRecipe(input: String) {
+        tastyService.recipeList(from: 0, size: 10, q: input, completion: { response in
+            self.searchRecipies = response
         })
     }
     

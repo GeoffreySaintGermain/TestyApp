@@ -14,7 +14,13 @@ struct FavoriteRecipesView: View {
     @State var selectedRecipe: Recipe? = nil
     
     var body: some View {
-        RecipesView(recipesViewModel: recipesViewModel, recipes: recipesViewModel.favorites)
+        NavigationView {
+            VStack {
+                RecipesView(recipesViewModel: recipesViewModel, recipes: recipesViewModel.favorites)
+            }
+            .navigationBarTitleDisplayMode(.large)
+            .navigationTitle(Text("My favorites Recipes"))
+        }        
     }
 }
 

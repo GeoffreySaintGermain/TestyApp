@@ -1,23 +1,29 @@
 //
-//  AllRecipesView.swift
+//  SearchRecipeview.swift
 //  Testy
 //
-//  Created by Saint Germain on 04/07/2022.
+//  Created by Saint Germain on 05/07/2022.
 //
 
-import Foundation
 import SwiftUI
 
-struct AllRecipesView: View {
+struct SearchRecipeView: View {
     
     @ObservedObject var recipesViewModel: RecipesViewModel
+    
     @State private var selectedRecipe: Recipe? = nil
+    @State var searchText = ""
+    @State var searching = false
     
     var body: some View {
         NavigationView {
             GeometryReader { reader in
-                VStack {       
-                    switch recipesViewModel.recipies {
+                VStack {
+                    SearchBarView(recipeViewModel: recipesViewModel, searchText: $searchText, searching: $searching)
+                    
+                    Divider()
+                    
+                    switch recipesViewModel.searchRecipies {
                         case .success(let response):
                             List {
                                 ForEach(response.results, id: \.self) { recipe in
@@ -62,16 +68,53 @@ struct AllRecipesView: View {
                         case .failure(_):
                             Text("Error while fetching data :(")
                     }
+                    
+                    Spacer()
                 }
+                .navigationTitle("Search a recipe")
                 .navigationBarTitleDisplayMode(.large)
-                .navigationTitle("Discover new Recipes")
             }
-        }
+        }             
     }
 }
 
-struct AllRecipesView_Previews: PreviewProvider {
+struct SearchBarView: View {
+    
+    @ObservedObject var recipeViewModel: RecipesViewModel
+    
+    @Binding var searchText: String
+    @Binding var searching: Bool
+    
+    var body: some View {
+        ZStack {
+            Rectangle()
+                .foregroundColor(Color("LightGray"))
+            HStack {
+                Image(systemName: "magnifyingglass")
+                TextField("Search ...", text: $searchText) { startedEditing in
+                    if startedEditing {
+                        withAnimation {
+                            searching = true
+                        }
+                    }
+                } onCommit: {
+                    withAnimation {
+                        searching = false
+                        recipeViewModel.searchRecipe(input: searchText)
+                    }
+                }
+            }
+            .foregroundColor(.gray)
+            .padding(.leading, testyPaddingM)
+        }
+        .frame(height: 40)
+        .cornerRadius(13)
+        .padding()
+    }
+}
+
+struct SearchRecipeView_Previews: PreviewProvider {
     static var previews: some View {
-        AllRecipesView(recipesViewModel: RecipesViewModel())
+        SearchRecipeView(recipesViewModel: RecipesViewModel())
     }
 }

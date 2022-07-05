@@ -19,7 +19,12 @@ public class TastyController {
             "X-RapidAPI-Host": rapidApiHost
         ]
 
-        var request = URLRequest(url: NSURL(string: "\(baseUrl)/recipes/list?from=\(offset)&size=\(size)")! as URL,
+        var url = "\(baseUrl)/recipes/list?from=\(offset)&size=\(size)"
+        if let q = q {
+            url += "&q=\(q)"
+        }
+        
+        var request = URLRequest(url: NSURL(string: url)! as URL,
                                                 cachePolicy: .useProtocolCachePolicy,
                                             timeoutInterval: 10.0)
         request.httpMethod = "GET"
