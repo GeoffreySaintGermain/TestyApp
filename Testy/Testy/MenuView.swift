@@ -20,6 +20,11 @@ struct MenuView: View {
                     Label("All", systemImage: "list.bullet")
                 }
             
+            Text("Recherche")
+                .tabItem {
+                    Label("Search", systemImage: "signature")
+                }
+            
             FavoriteRecipesView(recipesViewModel: recipeViewModel)
                 .tabItem {
                     Label("Favorites", systemImage: "heart")

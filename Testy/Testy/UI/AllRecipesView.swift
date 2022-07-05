@@ -65,9 +65,6 @@ struct AllRecipesView: View {
                 }
             }
         }
-        .onAppear {
-            recipesViewModel.fetchRecipies()
-        }
     }
 }
 

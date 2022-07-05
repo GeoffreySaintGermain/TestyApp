@@ -18,6 +18,7 @@ class RecipesViewModel: ObservableObject {
     
     init() {
         tastyService = TastyService(tastyRepository: TastyRepository(tastyController: TastyController()))
+//        fetchRecipies()
     }
     
     func fetchRecipies() {
