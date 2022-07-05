@@ -19,7 +19,7 @@ struct MenuView: View {
                 .tabItem {
                     Label("All", systemImage: "list.bullet")
                 }
-             
+            
             FavoriteRecipesView(recipesViewModel: recipeViewModel)
                 .tabItem {
                     Label("Favorites", systemImage: "heart")

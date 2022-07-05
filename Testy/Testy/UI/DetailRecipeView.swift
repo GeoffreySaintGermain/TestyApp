@@ -27,7 +27,7 @@ struct DetailRecipeView: View {
                     ProgressView()
                 }
                 .frame(minWidth: 0, maxWidth: .infinity)
-                
+                                
                 HStack {
                     Spacer()
                     Text(recipe.name)
@@ -37,11 +37,7 @@ struct DetailRecipeView: View {
                 .padding(.top, testyPaddingS)
                 
                 Divider()
-                                
-                Text(recipe.description)
-                    .font(.footnote)
-                    .padding(testyPaddingS)
-                                
+                
                 HStack {
                     Button {
                         showingShareSheet = true
@@ -63,8 +59,14 @@ struct DetailRecipeView: View {
                     }
                     .buttonStyle(.plain)
                 }
-                .padding([.leading, .trailing, .top], testyPaddingXXL)
+                .padding([.leading, .trailing], testyPaddingXXL)
                 
+                Divider()
+                                
+                Text(recipe.description)
+                    .font(.footnote)
+                    .padding(testyPaddingS)
+                                                                
                 Spacer()
             }
             .sheet(isPresented: $showingShareSheet, content: { ActivityViewController(itemsToShare: [recipe.description]) })
