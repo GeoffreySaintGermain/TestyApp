@@ -17,7 +17,7 @@ struct RecipesView: View {
     var body: some View {
         GeometryReader { reader in
             List {
-                ForEach(recipesViewModel.favorites, id: \.self) { recipe in
+                ForEach(recipes, id: \.self) { recipe in
                     VStack(alignment: .center) {
                         ZStack(alignment: Alignment(horizontal: .leading, vertical: .bottom)) {
                             AsyncImage(url: recipe.thumbnail_url) { image in
