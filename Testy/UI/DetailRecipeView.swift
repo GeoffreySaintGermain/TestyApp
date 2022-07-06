@@ -95,11 +95,7 @@ struct DetailHeaderView: View {
                 Spacer()
                 
                 Button {
-                    if recipesViewModel.favorites.contains(recipe) {
-                        recipesViewModel.removeFromFavorite(recipe)
-                    } else {
-                        recipesViewModel.addToFavorite(recipe)
-                    }
+                    recipesViewModel.addOrRemoveFavoriteRecipe(recipe)                    
                 } label: {
                     recipesViewModel.favorites.contains(recipe) ? Label("favorite", systemImage: "heart.fill") : Label("favorite", systemImage: "heart")
                 }
@@ -107,16 +103,17 @@ struct DetailHeaderView: View {
             }
             .padding([.leading, .trailing], testyPaddingXXL)
             
-            if !recipe.description.isEmpty {
+            if let description = recipe.description,
+               !description.isEmpty {
                 Divider()
                                 
-                HTMLStringView(recipe.description)
+                HTMLStringView(description)
                     .padding(testyPaddingS)
             }
                                                                             
             Spacer()
         }
-        .sheet(isPresented: $showingShareSheet, content: { ActivityViewController(itemsToShare: [recipe.description]) })
+        .sheet(isPresented: $showingShareSheet, content: { ActivityViewController(itemsToShare: [recipe.name]) })
     }
 }
 

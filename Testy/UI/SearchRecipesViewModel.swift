@@ -43,6 +43,7 @@ class SearchRecipesViewModel: ObservableObject {
     /// Initialise TastyService
     init() {
         tastyService = TastyService()
+        searchRecipe()
     }
     
     // MARK: Search functions
@@ -50,10 +51,10 @@ class SearchRecipesViewModel: ObservableObject {
     /// Search a recipe
     ///
     /// - input:  parameter for related recipe
-    func searchRecipe(input: String? = nil) {
+    func searchRecipe(input: String? = nil) {        
         loading = true
         
-        tastyService.recipeList(from: 0, size: 20, q: input)
+        tastyService.recipeList(from: 0, size: 10, q: input)
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {

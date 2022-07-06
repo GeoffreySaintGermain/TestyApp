@@ -27,10 +27,6 @@ class FavoriteRecipesViewModel: ObservableObject {
     // MARK: Properties
     
     @Published var favorites: [Recipe] = FileReader.readInFile(type: [Recipe].self, file: favoriteJsonFile) ?? []
-        
-    // MARK: Init
-    
-    init() {}
     
     // MARK: Functions
     

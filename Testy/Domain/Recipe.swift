@@ -26,7 +26,7 @@ struct Recipe: Codable, Hashable, Identifiable {
 
     var id: Int
     var name: String
-    var description: String
+    var description: String?
     var thumbnail_url: URL
     var instructions: [Instruction]?
     var sections: [Section]?

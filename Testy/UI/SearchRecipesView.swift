@@ -71,7 +71,7 @@ struct SearchBarView: View {
                     withAnimation {
                         recipeViewModel.searchRecipe(input: searchText)
                     }
-                })
+                })                
             }
             .foregroundColor(.gray)
             .padding(.leading, testyPaddingM)

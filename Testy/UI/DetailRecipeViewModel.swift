@@ -21,16 +21,25 @@ class DetailRecipeViewModel: ObservableObject {
     
     // MARK: Favorites functions
     
+    /// Add Or Remove a favorite recipe
+    func addOrRemoveFavoriteRecipe(_ recipe: Recipe) {
+        if favorites.contains(recipe) {
+            removeFromFavorite(recipe)
+        } else {
+            addToFavorite(recipe)
+        }
+    }
+    
     /// Add new recipe
     ///     and write current favorites in a json file
-    func addToFavorite(_ recipe: Recipe) {
+    private func addToFavorite(_ recipe: Recipe) {
         favorites.append(recipe)
         writeFavoritesInFile(favorites)
     }
     
     /// Remove a recipe
     ///     and write current favorites in a json file
-    func removeFromFavorite(_ recipe: Recipe) {
+    private func removeFromFavorite(_ recipe: Recipe) {
         guard let index = favorites.firstIndex(of: recipe) else {
             return
         }

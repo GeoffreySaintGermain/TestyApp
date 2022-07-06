@@ -53,13 +53,18 @@ public class TastyService: TastyServiceProtocol {
         ]
 
         var url = "\(baseUrl)/recipes/list?from=\(offset)&size=\(size)"
-        if let q = q {
+        if let q = q,
+           !q.isEmpty {
             url += "&q=\(q)"
         }
         
-        var request = URLRequest(url: NSURL(string: url)! as URL,
-                                                cachePolicy: .useProtocolCachePolicy,
-                                            timeoutInterval: 10.0)
+        guard let url = NSURL(string: url) else {
+            return AnyPublisher(
+                Fail<TastyResponseRecipe, Error>(error: TastyError.badRequest)
+            )
+        }
+        
+        var request = URLRequest(url: url as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
         
@@ -74,4 +79,11 @@ public class TastyService: TastyServiceProtocol {
             .decode(type: TastyResponseRecipe.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
+}
+
+/// Tasty error
+public enum TastyError: Int, Error {
+    case noNetwork
+    case serviceNotAvailable = 404 // http: 404
+    case badRequest = 400 // http: 400
 }
