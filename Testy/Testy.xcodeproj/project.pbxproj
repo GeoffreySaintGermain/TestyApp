@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA2C7DD3287592CA00806401 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2C7DD2287592CA00806401 /* ButtonStyles.swift */; };
 		AA79F01528732CCF0032495C /* TestyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F01428732CCF0032495C /* TestyApp.swift */; };
 		AA79F01728732CCF0032495C /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F01628732CCF0032495C /* MenuView.swift */; };
 		AA79F01928732CD00032495C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA79F01828732CD00032495C /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA2C7DD2287592CA00806401 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		AA79F01128732CCF0032495C /* Testy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Testy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA79F01428732CCF0032495C /* TestyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestyApp.swift; sourceTree = "<group>"; };
 		AA79F01628732CCF0032495C /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				AA79F03A287413230032495C /* ActivityViewController.swift */,
 				AA9FBEE7287568C400D222DA /* FileReader.swift */,
 				AA9FBEE928756C0500D222DA /* HTMLStringView.swift */,
+				AA2C7DD2287592CA00806401 /* ButtonStyles.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				AA79F03D28741EE50032495C /* RecipesView.swift in Sources */,
 				AA79F03428733F600032495C /* RecipesViewModel.swift in Sources */,
 				AA79F02C2873370B0032495C /* Recipe.swift in Sources */,
+				AA2C7DD3287592CA00806401 /* ButtonStyles.swift in Sources */,
 				AA79F03928740B780032495C /* DetailRecipeView.swift in Sources */,
 				AA79F02E2873381B0032495C /* TastyService.swift in Sources */,
 			);

@@ -118,7 +118,7 @@ struct SectionView: View {
                 ForEach(section.components, id: \.self) { component in
                     HStack {
                         Text(component.raw_text)
-                            .font(.caption)
+                            .font(.body)
                         Spacer()
                     }                    
                 }
@@ -139,7 +139,7 @@ struct InstructionView: View {
                 Text("\(instruction.position)")
                     .font(.title2)
                 Text(instruction.display_text)
-                    .font(.caption)
+                    .font(.body)
             }
         }
     }

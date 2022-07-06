@@ -101,11 +101,6 @@ struct RecipesDetailListView: View {
                 LazyVGrid(columns: columns, spacing: testyPaddingS) {
                     ForEach(recipes, id: \.self) { recipe in
                         RecipeRowView(recipesViewModel: recipesViewModel, recipe: recipe, selectedRecipe: $selectedRecipe, reader: reader)
-                            .onAppear {
-                                if recipe == recipes.last {
-                                    recipesViewModel.loadMoreRecipe(input: searchText)
-                                }
-                            }                        
                     }
                     .listRowSeparator(.hidden)
                     .listRowInsets(EdgeInsets())
@@ -119,6 +114,17 @@ struct RecipesDetailListView: View {
                         ProgressView()
                         Spacer()
                     }
+                } else {
+                    Button {
+                        if recipesViewModel.recipies.count > 0 {
+                            recipesViewModel.loadMoreRecipe(input: searchText)
+                        } else {
+                            recipesViewModel.searchRecipe()
+                        }                        
+                    } label: {
+                        Text("loadMore")
+                    }
+                    .buttonStyle(TestyButtonStyle())
                 }
             }
             .sheet(item: $selectedRecipe, content: { recipe in
