@@ -19,8 +19,12 @@
 
 import Foundation
 
+/// Generic class writing/reading json file
 public class FileReader<T: Codable> {
     
+    /// Read a json file
+    ///  - data: data to write in file
+    ///  - file: json file to write into
     public static func writeInFile(data: T, file: String) {
         do {
             let encodedFavorites = try JSONEncoder().encode(data)
@@ -32,6 +36,9 @@ public class FileReader<T: Codable> {
         }
     }
     
+    /// Read from a specific json file
+    ///  - type: type of the read data
+    ///  - file: json file to read
     public static func readInFile(type: T.Type, file: String) -> T? {
         let decoder = JSONDecoder()
         

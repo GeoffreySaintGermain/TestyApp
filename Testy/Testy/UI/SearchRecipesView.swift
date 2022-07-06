@@ -19,26 +19,30 @@
 
 import SwiftUI
 
+/// Search and Display a simplified list of favorites recipes
 struct SearchRecipesView: View {
     
+    /// ViewModel for SearchRecipesView
     @StateObject var recipesViewModel: SearchRecipesViewModel
     
+    /// Display a detail view of the recipe when tapped
     @State private var selectedRecipe: Recipe?
+    
+    /// Containing user input for researching a particular recipe
     @State var searchText = ""
-    @State var searching = false
     
     var body: some View {
         NavigationView {
             GeometryReader { reader in
                 VStack(spacing: 0) {
-                    SearchBarView(recipeViewModel: recipesViewModel, searchText: $searchText, searching: $searching)
+                    SearchBarView(recipeViewModel: recipesViewModel, searchText: $searchText)
                     
                     VStack(spacing: 0) {
                         Divider()
                     }
+                    .padding(.top, testyPaddingS)
                     
                     RecipesDetailListView(recipesViewModel: recipesViewModel,
-                                          recipes: recipesViewModel.recipies.results,
                                           searchText: $searchText)
                 }                
                 Spacer()
@@ -51,10 +55,11 @@ struct SearchRecipesView: View {
 
 struct SearchBarView: View {
     
+    /// ViewModel for SearchRecipesView
     @ObservedObject var recipeViewModel: SearchRecipesViewModel
     
+    /// Containing user input for researching a particular recipe
     @Binding var searchText: String
-    @Binding var searching: Bool
     
     var body: some View {
         ZStack {
@@ -62,18 +67,11 @@ struct SearchBarView: View {
                 .foregroundColor(Color("LightGray"))
             HStack {
                 Image(systemName: "magnifyingglass")
-                TextField("search...", text: $searchText) { startedEditing in
-                    if startedEditing {
-                        withAnimation {
-                            searching = true
-                        }
-                    }
-                } onCommit: {
+                TextField("search...", text: $searchText, onCommit: {
                     withAnimation {
-                        searching = false
                         recipeViewModel.searchRecipe(input: searchText)
                     }
-                }
+                })
             }
             .foregroundColor(.gray)
             .padding(.leading, testyPaddingM)
@@ -86,12 +84,16 @@ struct SearchBarView: View {
 
 struct RecipesDetailListView: View {
     
+    /// ViewModel for SearchRecipesView
     @ObservedObject var recipesViewModel: SearchRecipesViewModel
-    let recipes: [Recipe]
+    
+    /// Search in fonction of what the user typed
     @Binding var searchText: String
     
+    /// Display a detail view of the recipe when tapped
     @State var selectedRecipe: Recipe?
            
+    /// 2 identical columns displaying simplify recipes
     let columns = [
            GridItem(.flexible()),
            GridItem(.flexible())
@@ -101,7 +103,7 @@ struct RecipesDetailListView: View {
         GeometryReader { reader in
             ScrollView {
                 LazyVGrid(columns: columns, spacing: testyPaddingS) {
-                    ForEach(recipes, id: \.self) { recipe in
+                    ForEach(recipesViewModel.recipies.results, id: \.self) { recipe in
                         RecipeRowView(recipe: recipe, selectedRecipe: $selectedRecipe, reader: reader)
                     }
                     .listRowSeparator(.hidden)

@@ -20,6 +20,7 @@
 import Foundation
 import SwiftUI
 
+/// Display a Share Sheet
 struct ActivityViewController: UIViewControllerRepresentable {
     var itemsToShare: [Any]
     var servicesToShareItem: [UIActivity]? = nil

@@ -20,9 +20,13 @@
 import Foundation
 import SwiftUI
 
+/// Show a recipe in detail
 struct DetailRecipeView: View {
     
+    /// View Model for DetailRecipeView
     @ObservedObject var recipesViewModel: DetailRecipeViewModel
+    
+    /// Recipe displayed
     @State var recipe: Recipe
     
     var body: some View {
@@ -42,11 +46,20 @@ struct DetailRecipeView: View {
     }
 }
 
+/// Show the header of the recipe
+///   - AsyncImage
+///   - Name
+///   - Share
+///   - Html description
 struct DetailHeaderView: View {
     
+    /// ViewModel for DetailRecipeView
     @ObservedObject var recipesViewModel: DetailRecipeViewModel
+    
+    /// Recipe displayed
     @Binding var recipe: Recipe
         
+    /// Share the recipe when tap on Share button
     @State var showingShareSheet = false
     
     var body: some View {
@@ -57,6 +70,7 @@ struct DetailHeaderView: View {
                     .scaledToFill()
                     .layoutPriority(-1)
             } placeholder: {
+                Spacer()
                 ProgressView()
             }
             .frame(minWidth: 0, maxWidth: .infinity)
@@ -106,9 +120,13 @@ struct DetailHeaderView: View {
     }
 }
 
+/// Display the list of ingredient needed for the recipe
 struct SectionView: View {
     
+    /// ViewModel for DetailRecipeView
     @ObservedObject var recipesViewModel: DetailRecipeViewModel
+    
+    /// Share the recipe when tap on Share button
     @Binding var recipe: Recipe
         
     var body: some View {
@@ -128,13 +146,15 @@ struct SectionView: View {
 
 struct InstructionView: View {
     
+    /// ViewModel for DetailRecipeView
     @ObservedObject var recipesViewModel: DetailRecipeViewModel
+    
+    /// Share the recipe when tap on Share button
     @Binding var recipe: Recipe
     
     var body: some View {
         VStack(alignment: .leading) {
-            ForEach(recipe.instructions ?? [], id: \.self) { instruction in
-                
+            ForEach(recipe.instructions ?? [], id: \.self) { instruction in                
                 Text("\(instruction.position)")
                     .font(.title2)
                 Text(instruction.display_text)

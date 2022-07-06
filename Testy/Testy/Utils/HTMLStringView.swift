@@ -22,10 +22,17 @@
 import WebKit
 import SwiftUI
 
+
+/// Convert HTML raw text in displayable string
 struct HTMLStringView: UIViewRepresentable {
     
+    /// App scheme
     @Environment(\.colorScheme) var colorScheme
+    
+    /// Html text
     let text: String
+    
+    /// Current textView
     private  let textView = UITextView()
     
     init(_ content: String) {
@@ -53,6 +60,7 @@ struct HTMLStringView: UIViewRepresentable {
         }
     }
     
+    /// Convert raw html to standard string
     private func converHTML(text: String) -> NSAttributedString? {        
         let modifiedFont = String(format:"<span style=\"font-family: '-apple-system', 'HelveticaNeue'; font-size: 16\">\(text)</span>")
         

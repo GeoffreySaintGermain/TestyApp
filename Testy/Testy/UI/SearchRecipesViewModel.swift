@@ -21,23 +21,35 @@ import Combine
 import Foundation
 import SwiftUI
 
+/// Search and Display a simplified list of favorites recipes
 class SearchRecipesViewModel: ObservableObject {
     
-    let tastyService: TastyService
+    // MARK: Properties
     
+    /// Searched recipes
     @Published var recipies: TastyResponseRecipe = TastyResponseRecipe(count: 0, results: [])
-    @Published var favorites: [Recipe] = FileReader.readInFile(type: [Recipe].self, file: favoriteJsonFile) ?? []
     
+    /// True when calling Tasty API
     @Published var loading = false
     
+    /// Service for Tasty API
+    let tastyService: TastyService
+    
+    /// Cancellable for publisher
     private var cancellables: Set<AnyCancellable> = []
         
+    // MARK: Init
+    
+    /// Initialise TastyService
     init() {
         tastyService = TastyService()
     }
     
     // MARK: Search functions
     
+    /// Search a recipe
+    ///
+    /// - input:  parameter for related recipe
     func searchRecipe(input: String? = nil) {
         loading = true
         
@@ -59,6 +71,9 @@ class SearchRecipesViewModel: ObservableObject {
             }.store(in: &cancellables)
     }
     
+    /// Load more result for a recipe
+    ///
+    /// - input:  parameter for related recipe
     func loadMoreRecipe(input: String? = nil) {
         loading = true
         
@@ -84,24 +99,5 @@ class SearchRecipesViewModel: ObservableObject {
                 self.recipies.count = response.count
                 self.loading = false
             }.store(in: &cancellables)
-    }
-    
-    // MARK: Favorites functions
-    
-    func addToFavorite(_ recipe: Recipe) {
-        favorites.append(recipe)
-        writeFavoritesInFile(favorites)
-    }
-    
-    func removeFromFavorite(_ recipe: Recipe) {
-        guard let index = favorites.firstIndex(of: recipe) else {
-            return
-        }
-        favorites.remove(at: index)
-        writeFavoritesInFile(favorites)
-    }
-    
-    private func writeFavoritesInFile(_ recipes: [Recipe]) {
-        FileReader.writeInFile(data: recipes, file: favoriteJsonFile)
     }
 }

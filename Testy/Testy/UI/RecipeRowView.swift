@@ -19,11 +19,17 @@
 
 import SwiftUI
 
+/// Display a simplify view of a recipe
+///     Used in list displaying multiple recipes
 struct RecipeRowView: View {
     
+    /// The recipe to display
     let recipe: Recipe
     
+    /// Display a sheet when the recipe is tapped
     @Binding var selectedRecipe: Recipe?
+    
+    /// Proxy containing the width of the parent's view
     let reader: GeometryProxy
     
     var body: some View {

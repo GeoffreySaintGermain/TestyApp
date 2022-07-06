@@ -20,18 +20,32 @@
 import Combine
 import Foundation
 
+/// Protocol for Tasty API
 protocol TastyServiceProtocol {
     func recipeList(from offset: Int, size: Int, tags: String?, q: String?) -> AnyPublisher<TastyResponseRecipe, Error>
 }
 
+/// Request to Tasty API
 public class TastyService: TastyServiceProtocol {
     
+    /// Cancel publisher
     internal var cancellables: Set<AnyCancellable> = []
     
+    /// Base URL of tasty API
     let baseUrl = "https://tasty.p.rapidapi.com"
+    
+    /// Host URI
     let rapidApiHost = "tasty.p.rapidapi.com"
+    
+    /// Key to call api
     let rapidApiKey = "c4620708c3msh37263e720328b1cp1317a7jsncc90dabc8d72"
     
+    /// Call TastyAPI and get a list of recipe
+    ///
+    ///  - from: offset of the called list
+    ///  - size: number of recipe returned
+    ///  - tags: specific tag for recipes
+    ///  - q: text related to a recipe
     func recipeList(from offset: Int, size: Int, tags: String? = nil, q: String? = nil) -> AnyPublisher<TastyResponseRecipe, Error> {
         let headers = [
             "X-RapidAPI-Key": rapidApiKey,

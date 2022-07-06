@@ -7,19 +7,29 @@
 
 import Foundation
 
+/// ViewModel reading and writing favorites recipes
 class DetailRecipeViewModel: ObservableObject {
     
+    // MARK: Properties
+    
+    /// List of favorites recipes, contained in a json file
     @Published var favorites: [Recipe] = FileReader.readInFile(type: [Recipe].self, file: favoriteJsonFile) ?? []
         
+    // MARK: Init
+    
     init() {}
     
     // MARK: Favorites functions
     
+    /// Add new recipe
+    ///     and write current favorites in a json file
     func addToFavorite(_ recipe: Recipe) {
         favorites.append(recipe)
         writeFavoritesInFile(favorites)
     }
     
+    /// Remove a recipe
+    ///     and write current favorites in a json file
     func removeFromFavorite(_ recipe: Recipe) {
         guard let index = favorites.firstIndex(of: recipe) else {
             return
@@ -28,6 +38,7 @@ class DetailRecipeViewModel: ObservableObject {
         writeFavoritesInFile(favorites)
     }
     
+    /// Write favorites recipes in a json file
     private func writeFavoritesInFile(_ recipes: [Recipe]) {
         FileReader.writeInFile(data: recipes, file: favoriteJsonFile)
     }

@@ -23,8 +23,6 @@ import SwiftUI
 ///  - SearchRecipeView: Ask TastyApi and display a list of recipes with ou without research
 ///  - FavoriteRecipesView: Show a list of favorite recipes
 struct MenuView: View {
-    
-    @State var showingSheet = false
             
     var body: some View {
         TabView {

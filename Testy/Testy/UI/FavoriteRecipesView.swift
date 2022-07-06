@@ -19,18 +19,19 @@
 
 import SwiftUI
 
+/// Display a simplified list of favorites recipes
 struct FavoriteRecipesView: View {
     
+    /// ViewModel for FavoriteRecipesView
     @StateObject var recipesViewModel: FavoriteRecipesViewModel
     
+    /// Display a detail Recipe when tap on it
     @State var selectedRecipe: Recipe?
-    
-    @Environment(\.scenePhase) var scenePhase
     
     var body: some View {
         NavigationView {
             VStack {
-                FavoritesRecipesListView(recipesViewModel: recipesViewModel, recipes: recipesViewModel.favorites)
+                FavoritesRecipesListView(recipesViewModel: recipesViewModel)
             }
             .onAppear {
                 recipesViewModel.refreshFavorites()
@@ -41,13 +42,16 @@ struct FavoriteRecipesView: View {
     }
 }
 
+/// List of favorites recipes
 struct FavoritesRecipesListView: View {
     
+    /// ViewModel for FavoriteRecipesView
     @ObservedObject var recipesViewModel: FavoriteRecipesViewModel
-    let recipes: [Recipe]
     
+    /// Display a detail Recipe when tap on it
     @State private var selectedRecipe: Recipe?
     
+    /// 2 identical columns displaying simplify recipes
     private let columns = [
            GridItem(.flexible()),
            GridItem(.flexible())
@@ -57,7 +61,7 @@ struct FavoritesRecipesListView: View {
         GeometryReader { reader in
             ScrollView {
                 LazyVGrid(columns: columns, spacing: testyPaddingS) {
-                    ForEach(recipes, id: \.self) { recipe in
+                    ForEach(recipesViewModel.favorites, id: \.self) { recipe in
                         RecipeRowView(recipe: recipe, selectedRecipe: $selectedRecipe, reader: reader)
                     }
                     .listRowSeparator(.hidden)

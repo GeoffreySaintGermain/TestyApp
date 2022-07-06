@@ -19,7 +19,10 @@
 
 import SwiftUI
 
+/// A recipe defined provide by Tasty
 struct Recipe: Codable, Hashable, Identifiable {
+    
+    // MARK: Attributes
 
     var id: Int
     var name: String
@@ -28,11 +31,14 @@ struct Recipe: Codable, Hashable, Identifiable {
     var instructions: [Instruction]?
     var sections: [Section]?
     
+    // MARK: Functions
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
 }
 
+/// List of instructions to complete the recipe
 struct Instruction: Codable, Hashable {
     var position: Int
     var display_text: String
@@ -42,6 +48,7 @@ struct Instruction: Codable, Hashable {
     }
 }
 
+/// A list of ingredients for the recipe
 struct Section: Codable, Hashable {
     var position: Int
     var components: [Component]
@@ -51,10 +58,12 @@ struct Section: Codable, Hashable {
     }
 }
 
+/// An Ingredient for the recipe
 struct Component: Codable, Hashable {
     var raw_text: String
 }
 
+/// Response from TastyAPI with a list of recipe and the total number of similar recipe
 struct TastyResponseRecipe: Codable {
     var count: Int
     var results: [Recipe]    
