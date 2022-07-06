@@ -47,6 +47,17 @@ class SearchRecipesViewModel: ObservableObject {
     
     // MARK: Search functions
     
+    /// Search or load if the number of recipes aren't empty
+    ///
+    /// - input: parameter for related recipe
+    func loadOrSearch(input : String? = nil) {
+        if recipies.count > 0 {
+            loadMoreRecipe(input: input)
+        } else {
+            searchRecipe()
+        }
+    }
+    
     /// Search a recipe
     ///
     /// - input:  parameter for related recipe

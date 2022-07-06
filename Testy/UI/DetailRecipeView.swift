@@ -70,8 +70,10 @@ struct DetailHeaderView: View {
                     .scaledToFill()
                     .layoutPriority(-1)
             } placeholder: {
-                Spacer()
-                ProgressView()
+                VStack(alignment: .center) {
+                    ProgressView()
+                }
+                .padding([.top, .bottom], testyPaddingXXL)
             }
             .frame(minWidth: 0, maxWidth: .infinity)
                             

@@ -119,12 +119,8 @@ struct RecipesDetailListView: View {
                         Spacer()
                     }
                 } else {
-                    Button {
-                        if recipesViewModel.recipies.count > 0 {
-                            recipesViewModel.loadMoreRecipe(input: searchText)
-                        } else {
-                            recipesViewModel.searchRecipe()
-                        }
+                    Button {                        
+                        recipesViewModel.loadOrSearch(input: searchText)
                     } label: {
                         Text("loadMore")
                     }
