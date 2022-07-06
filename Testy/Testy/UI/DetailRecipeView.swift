@@ -32,9 +32,11 @@ struct DetailRecipeView: View {
                                 
                 Divider()
                 SectionView(recipesViewModel: recipesViewModel, recipe: $recipe)
+                    .padding([.leading, .trailing], testyPaddingM)
                                 
                 Divider()
                 InstructionView(recipesViewModel: recipesViewModel, recipe: $recipe)
+                    .padding([.leading, .trailing], testyPaddingM)
             }
             
         }
@@ -60,12 +62,11 @@ struct DetailHeaderView: View {
             }
             .frame(minWidth: 0, maxWidth: .infinity)
                             
-            HStack {
-                Spacer()
+            VStack(alignment: .center) {
                 Text(recipe.name)
                     .font(.title)
-                Spacer()
             }
+            .padding([.leading, .trailing], testyPaddingM)
             .padding(.top, testyPaddingS)
             
             Divider()
