@@ -94,12 +94,13 @@ struct DetailHeaderView: View {
             }
             .padding([.leading, .trailing], testyPaddingXXL)
             
-            Divider()
-                            
-            HTMLStringView(recipe.description)
-                
-                .padding(testyPaddingS)
-                                                            
+            if !recipe.description.isEmpty {
+                Divider()
+                                
+                HTMLStringView(recipe.description)
+                    .padding(testyPaddingS)
+            }
+                                                                            
             Spacer()
         }
         .sheet(isPresented: $showingShareSheet, content: { ActivityViewController(itemsToShare: [recipe.description]) })

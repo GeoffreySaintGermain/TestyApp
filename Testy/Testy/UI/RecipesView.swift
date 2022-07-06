@@ -26,15 +26,23 @@ struct RecipesView: View {
     
     @State var selectedRecipe: Recipe?
     
+    let columns = [
+           GridItem(.flexible()),
+           GridItem(.flexible())
+       ]
+    
     var body: some View {
         GeometryReader { reader in
-            List {
-                ForEach(recipes, id: \.self) { recipe in
-                    RecipeRowView(recipesViewModel: recipesViewModel, recipe: recipe, selectedRecipe: $selectedRecipe, reader: reader)
+            ScrollView {
+                LazyVGrid(columns: columns, spacing: testyPaddingS) {
+                    ForEach(recipes, id: \.self) { recipe in
+                        RecipeRowView(recipesViewModel: recipesViewModel, recipe: recipe, selectedRecipe: $selectedRecipe, reader: reader)
+                    }
+                    .listRowSeparator(.hidden)
+                    .listRowInsets(EdgeInsets())
+                    .padding(.top, testyPaddingS)
+                    .padding([.leading, .trailing], testyPaddingM)
                 }
-                .listRowSeparator(.hidden)
-                .listRowInsets(EdgeInsets())
-                .padding([.top, .bottom], testyPaddingM)
             }
             .sheet(item: $selectedRecipe, content: { recipe in
                 DetailRecipeView(recipesViewModel: recipesViewModel, recipe: recipe)
@@ -69,19 +77,20 @@ struct RecipeRowView: View {
                     Spacer()
                     
                     Text(recipe.name)
+                        .font(.caption)
+                        .bold()
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .padding(testyPaddingS)
-                        .background(.regularMaterial)
+                        .background(.thickMaterial)
                 }
             }
             .onTapGesture {
                 selectedRecipe = recipe
             }
             .clipShape(RoundedRectangle(cornerRadius: 15))
-            .frame(width: reader.size.width - (testyPaddingM * 2), height: 200)
+            .frame(width: (abs(reader.size.width - testyPaddingS) / 2), height: 200)
             .clipped()
             .aspectRatio(1, contentMode: .fit)
         }
-        .padding(testyPaddingM)
     }
 }

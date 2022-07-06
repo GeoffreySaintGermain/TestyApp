@@ -28,8 +28,10 @@ class RecipesViewModel: ObservableObject {
     @Published var recipies: TastyResponseRecipe = TastyResponseRecipe(count: 0, results: [])
     @Published var favorites: [Recipe] = FileReader.readInFile(type: [Recipe].self, file: favoriteJsonFile) ?? []
     
-    private var cancellables: Set<AnyCancellable> = []
+    @Published var loading = false
     
+    private var cancellables: Set<AnyCancellable> = []
+        
     init() {
         tastyService = TastyService()
 //        searchRecipe()
@@ -38,7 +40,9 @@ class RecipesViewModel: ObservableObject {
     // MARK: Search functions
     
     func searchRecipe(input: String? = nil) {
-        tastyService.recipeList(from: 0, size: 10, q: input)
+        loading = true
+        
+        tastyService.recipeList(from: 0, size: 20, q: input)
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {
@@ -46,11 +50,40 @@ class RecipesViewModel: ObservableObject {
                         break
                     case .failure(let error):
                         print(error.localizedDescription)
+                        self.loading = false
                         break
                 }
                 print("Completion \(completion)")
             } receiveValue: { response in
                 self.recipies = response
+                self.loading = false
+            }.store(in: &cancellables)
+    }
+    
+    func loadMoreRecipe(input: String? = nil) {
+        loading = true
+        
+        guard recipies.results.count < recipies.count else {
+            loading = false
+            return
+        }
+        
+        tastyService.recipeList(from: recipies.results.count, size: 20, q: input)
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                        self.loading = false
+                        break
+                }
+                print("Completion \(completion)")
+            } receiveValue: { response in
+                self.recipies.results += response.results
+                self.recipies.count = response.count
+                self.loading = false
             }.store(in: &cancellables)
     }
     

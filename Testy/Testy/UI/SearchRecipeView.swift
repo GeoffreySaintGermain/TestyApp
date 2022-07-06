@@ -35,7 +35,9 @@ struct SearchRecipeView: View {
                     
                     Divider()
                     
-                    RecipesView(recipesViewModel: recipesViewModel, recipes: recipesViewModel.recipies.results)                
+                    RecipesDetailListView(recipesViewModel: recipesViewModel,
+                                          recipes: recipesViewModel.recipies.results,
+                                          searchText: $searchText)
                 }                
                 Spacer()
             }
@@ -77,6 +79,54 @@ struct SearchBarView: View {
         .frame(height: 20)
         .cornerRadius(13)
         .padding()
+    }
+}
+
+struct RecipesDetailListView: View {
+    
+    @ObservedObject var recipesViewModel: RecipesViewModel
+    let recipes: [Recipe]
+    @Binding var searchText: String
+    
+    @State var selectedRecipe: Recipe?
+           
+    let columns = [
+           GridItem(.flexible()),
+           GridItem(.flexible())
+       ]
+    
+    var body: some View {
+        GeometryReader { reader in
+            ScrollView {
+                LazyVGrid(columns: columns, spacing: testyPaddingS) {
+                    ForEach(recipes, id: \.self) { recipe in
+                        RecipeRowView(recipesViewModel: recipesViewModel, recipe: recipe, selectedRecipe: $selectedRecipe, reader: reader)
+                            .onAppear {
+                                if recipe == recipes.last {
+                                    recipesViewModel.loadMoreRecipe(input: searchText)
+                                }
+                            }                        
+                    }
+                    .listRowSeparator(.hidden)
+                    .listRowInsets(EdgeInsets())
+                    .padding(.top, testyPaddingS)
+                    .padding([.leading, .trailing], testyPaddingM)
+                }
+                
+                if recipesViewModel.loading {
+                    HStack {
+                        Spacer()
+                        ProgressView()
+                        Spacer()
+                    }
+                }
+            }
+            .sheet(item: $selectedRecipe, content: { recipe in
+                DetailRecipeView(recipesViewModel: recipesViewModel, recipe: recipe)
+                
+            })
+            .listStyle(PlainListStyle())
+        }
     }
 }
 
