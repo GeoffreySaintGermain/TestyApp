@@ -25,3 +25,7 @@ public let testyPaddingS: CGFloat = 12.0
 public let testyPaddingM: CGFloat = 16.0
 public let testyPaddingL: CGFloat = 20.0
 public let testyPaddingXXL: CGFloat = 64.0
+
+/// Constants used for files in the application
+
+public let favoriteJsonFile = "favoriteRecipes.json"

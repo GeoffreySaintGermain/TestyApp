@@ -11,18 +11,18 @@
 		AA79F01728732CCF0032495C /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F01628732CCF0032495C /* MenuView.swift */; };
 		AA79F01928732CD00032495C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA79F01828732CD00032495C /* Assets.xcassets */; };
 		AA79F01C28732CD00032495C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA79F01B28732CD00032495C /* Preview Assets.xcassets */; };
-		AA79F028287336D50032495C /* AllRecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F027287336D50032495C /* AllRecipesView.swift */; };
 		AA79F02A287336F40032495C /* FavoriteRecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F029287336F40032495C /* FavoriteRecipesView.swift */; };
 		AA79F02C2873370B0032495C /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F02B2873370B0032495C /* Recipe.swift */; };
 		AA79F02E2873381B0032495C /* TastyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F02D2873381B0032495C /* TastyService.swift */; };
-		AA79F0302873382D0032495C /* TastyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F02F2873382D0032495C /* TastyRepository.swift */; };
-		AA79F0322873389C0032495C /* TastyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F0312873389C0032495C /* TastyController.swift */; };
 		AA79F03428733F600032495C /* RecipesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F03328733F600032495C /* RecipesViewModel.swift */; };
 		AA79F03728735D6D0032495C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F03628735D6D0032495C /* Constants.swift */; };
 		AA79F03928740B780032495C /* DetailRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F03828740B780032495C /* DetailRecipeView.swift */; };
-		AA79F03B287413230032495C /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F03A287413230032495C /* ShareSheet.swift */; };
+		AA79F03B287413230032495C /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F03A287413230032495C /* ActivityViewController.swift */; };
 		AA79F03D28741EE50032495C /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F03C28741EE50032495C /* RecipesView.swift */; };
 		AA79F04A2874639B0032495C /* SearchRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA79F0492874639B0032495C /* SearchRecipeView.swift */; };
+		AA9FBEE32875639500D222DA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA9FBEE52875639500D222DA /* Localizable.strings */; };
+		AA9FBEE8287568C400D222DA /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9FBEE7287568C400D222DA /* FileReader.swift */; };
+		AA9FBEEA28756C0500D222DA /* HTMLStringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9FBEE928756C0500D222DA /* HTMLStringView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,18 +31,19 @@
 		AA79F01628732CCF0032495C /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		AA79F01828732CD00032495C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA79F01B28732CD00032495C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		AA79F027287336D50032495C /* AllRecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRecipesView.swift; sourceTree = "<group>"; };
 		AA79F029287336F40032495C /* FavoriteRecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipesView.swift; sourceTree = "<group>"; };
 		AA79F02B2873370B0032495C /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		AA79F02D2873381B0032495C /* TastyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TastyService.swift; sourceTree = "<group>"; };
-		AA79F02F2873382D0032495C /* TastyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TastyRepository.swift; sourceTree = "<group>"; };
-		AA79F0312873389C0032495C /* TastyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TastyController.swift; sourceTree = "<group>"; };
 		AA79F03328733F600032495C /* RecipesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewModel.swift; sourceTree = "<group>"; };
 		AA79F03628735D6D0032495C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AA79F03828740B780032495C /* DetailRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRecipeView.swift; sourceTree = "<group>"; };
-		AA79F03A287413230032495C /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
+		AA79F03A287413230032495C /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		AA79F03C28741EE50032495C /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
 		AA79F0492874639B0032495C /* SearchRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipeView.swift; sourceTree = "<group>"; };
+		AA9FBEE42875639500D222DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AA9FBEE62875639700D222DA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AA9FBEE7287568C400D222DA /* FileReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileReader.swift; sourceTree = "<group>"; };
+		AA9FBEE928756C0500D222DA /* HTMLStringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLStringView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +60,7 @@
 		AA79F00828732CCF0032495C = {
 			isa = PBXGroup;
 			children = (
+				AA9FBEE52875639500D222DA /* Localizable.strings */,
 				AA79F01328732CCF0032495C /* Testy */,
 				AA79F01228732CCF0032495C /* Products */,
 			);
@@ -98,7 +100,6 @@
 		AA79F024287336A40032495C /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				AA79F027287336D50032495C /* AllRecipesView.swift */,
 				AA79F03328733F600032495C /* RecipesViewModel.swift */,
 				AA79F029287336F40032495C /* FavoriteRecipesView.swift */,
 				AA79F03828740B780032495C /* DetailRecipeView.swift */,
@@ -111,7 +112,6 @@
 		AA79F025287336B00032495C /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				AA79F02D2873381B0032495C /* TastyService.swift */,
 				AA79F02B2873370B0032495C /* Recipe.swift */,
 			);
 			path = Domain;
@@ -120,8 +120,7 @@
 		AA79F026287336B60032495C /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				AA79F02F2873382D0032495C /* TastyRepository.swift */,
-				AA79F0312873389C0032495C /* TastyController.swift */,
+				AA79F02D2873381B0032495C /* TastyService.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -130,7 +129,9 @@
 			isa = PBXGroup;
 			children = (
 				AA79F03628735D6D0032495C /* Constants.swift */,
-				AA79F03A287413230032495C /* ShareSheet.swift */,
+				AA79F03A287413230032495C /* ActivityViewController.swift */,
+				AA9FBEE7287568C400D222DA /* FileReader.swift */,
+				AA9FBEE928756C0500D222DA /* HTMLStringView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -177,6 +178,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = AA79F00828732CCF0032495C;
 			productRefGroup = AA79F01228732CCF0032495C /* Products */;
@@ -194,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA79F01C28732CD00032495C /* Preview Assets.xcassets in Resources */,
+				AA9FBEE32875639500D222DA /* Localizable.strings in Resources */,
 				AA79F01928732CD00032495C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,14 +209,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA79F01728732CCF0032495C /* MenuView.swift in Sources */,
-				AA79F0322873389C0032495C /* TastyController.swift in Sources */,
 				AA79F04A2874639B0032495C /* SearchRecipeView.swift in Sources */,
+				AA9FBEE8287568C400D222DA /* FileReader.swift in Sources */,
+				AA9FBEEA28756C0500D222DA /* HTMLStringView.swift in Sources */,
 				AA79F01528732CCF0032495C /* TestyApp.swift in Sources */,
-				AA79F0302873382D0032495C /* TastyRepository.swift in Sources */,
 				AA79F02A287336F40032495C /* FavoriteRecipesView.swift in Sources */,
 				AA79F03728735D6D0032495C /* Constants.swift in Sources */,
-				AA79F028287336D50032495C /* AllRecipesView.swift in Sources */,
-				AA79F03B287413230032495C /* ShareSheet.swift in Sources */,
+				AA79F03B287413230032495C /* ActivityViewController.swift in Sources */,
 				AA79F03D28741EE50032495C /* RecipesView.swift in Sources */,
 				AA79F03428733F600032495C /* RecipesViewModel.swift in Sources */,
 				AA79F02C2873370B0032495C /* Recipe.swift in Sources */,
@@ -223,6 +225,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AA9FBEE52875639500D222DA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA9FBEE42875639500D222DA /* en */,
+				AA9FBEE62875639700D222DA /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		AA79F01D28732CD00032495C /* Debug */ = {
@@ -281,6 +295,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -334,6 +349,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
