@@ -33,7 +33,7 @@ class SearchRecipesViewModel: ObservableObject {
     @Published var loading = false
     
     /// Service for Tasty API
-    let tastyService: TastyService
+    let tastyService: TastyService = TastyService()
     
     /// Cancellable for publisher
     private var cancellables: Set<AnyCancellable> = []
@@ -42,7 +42,6 @@ class SearchRecipesViewModel: ObservableObject {
     
     /// Initialise TastyService
     init() {
-        tastyService = TastyService()
         searchRecipe()
     }
     
@@ -54,7 +53,7 @@ class SearchRecipesViewModel: ObservableObject {
     func searchRecipe(input: String? = nil) {        
         loading = true
         
-        tastyService.recipeList(from: 0, size: 10, q: input)
+        tastyService.recipeList(from: 0, size: 20, q: input)
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {

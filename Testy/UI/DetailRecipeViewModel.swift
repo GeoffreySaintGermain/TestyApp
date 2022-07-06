@@ -13,11 +13,7 @@ class DetailRecipeViewModel: ObservableObject {
     // MARK: Properties
     
     /// List of favorites recipes, contained in a json file
-    @Published var favorites: [Recipe] = FileReader.readInFile(type: [Recipe].self, file: favoriteJsonFile) ?? []
-        
-    // MARK: Init
-    
-    init() {}
+    @Published var favorites: [Recipe] = FileReader.readInFile(type: [Recipe].self, file: favoriteJsonFile) ?? []        
     
     // MARK: Favorites functions
     
