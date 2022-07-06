@@ -21,14 +21,19 @@ import SwiftUI
 
 struct FavoriteRecipesView: View {
     
-    @ObservedObject var recipesViewModel: RecipesViewModel
+    @StateObject var recipesViewModel: FavoriteRecipesViewModel
     
     @State var selectedRecipe: Recipe?
+    
+    @Environment(\.scenePhase) var scenePhase
     
     var body: some View {
         NavigationView {
             VStack {
-                RecipesView(recipesViewModel: recipesViewModel, recipes: recipesViewModel.favorites)
+                FavoritesRecipesListView(recipesViewModel: recipesViewModel, recipes: recipesViewModel.favorites)
+            }
+            .onAppear {
+                recipesViewModel.refreshFavorites()
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle(Text("myFavoritesRecipes"))
@@ -36,8 +41,43 @@ struct FavoriteRecipesView: View {
     }
 }
 
+struct FavoritesRecipesListView: View {
+    
+    @ObservedObject var recipesViewModel: FavoriteRecipesViewModel
+    let recipes: [Recipe]
+    
+    @State private var selectedRecipe: Recipe?
+    
+    private let columns = [
+           GridItem(.flexible()),
+           GridItem(.flexible())
+       ]
+    
+    var body: some View {
+        GeometryReader { reader in
+            ScrollView {
+                LazyVGrid(columns: columns, spacing: testyPaddingS) {
+                    ForEach(recipes, id: \.self) { recipe in
+                        RecipeRowView(recipe: recipe, selectedRecipe: $selectedRecipe, reader: reader)
+                    }
+                    .listRowSeparator(.hidden)
+                    .listRowInsets(EdgeInsets())
+                    .padding(.top, testyPaddingS)
+                    .padding([.leading, .trailing], testyPaddingM)
+                }
+            }
+            .sheet(item: $selectedRecipe) {
+                recipesViewModel.refreshFavorites()
+            } content: { recipe in
+                DetailRecipeView(recipesViewModel: DetailRecipeViewModel(), recipe: recipe)
+            }
+            .listStyle(PlainListStyle())
+        }
+    }
+}
+
 struct FavoriteRecipesView_Previews: PreviewProvider {
     static var previews: some View {
-        FavoriteRecipesView(recipesViewModel: RecipesViewModel())
+        FavoriteRecipesView(recipesViewModel: FavoriteRecipesViewModel())
     }
 }

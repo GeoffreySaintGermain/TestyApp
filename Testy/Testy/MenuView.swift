@@ -19,20 +19,21 @@
 
 import SwiftUI
 
+/// TabView With 2 Views
+///  - SearchRecipeView: Ask TastyApi and display a list of recipes with ou without research
+///  - FavoriteRecipesView: Show a list of favorite recipes
 struct MenuView: View {
-
+    
     @State var showingSheet = false
-    
-    @StateObject var recipeViewModel = RecipesViewModel()
-    
+            
     var body: some View {
         TabView {
-            SearchRecipeView(recipesViewModel: recipeViewModel)
+            SearchRecipesView(recipesViewModel: SearchRecipesViewModel())
                 .tabItem {
                     Label("all", systemImage: "magnifyingglass")
                 }
             
-            FavoriteRecipesView(recipesViewModel: recipeViewModel)
+            FavoriteRecipesView(recipesViewModel: FavoriteRecipesViewModel())
                 .tabItem {
                     Label("favorites", systemImage: "heart")
                 }

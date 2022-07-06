@@ -1,5 +1,5 @@
 //
-//  RecipeViewModel.swift
+//  SearchRecipesViewModel.swift
 //  Testy
 //
 //  Copyright 2022 Geoffrey Saint-Germain
@@ -21,7 +21,7 @@ import Combine
 import Foundation
 import SwiftUI
 
-class RecipesViewModel: ObservableObject {
+class SearchRecipesViewModel: ObservableObject {
     
     let tastyService: TastyService
     
@@ -34,7 +34,6 @@ class RecipesViewModel: ObservableObject {
         
     init() {
         tastyService = TastyService()
-//        searchRecipe()
     }
     
     // MARK: Search functions

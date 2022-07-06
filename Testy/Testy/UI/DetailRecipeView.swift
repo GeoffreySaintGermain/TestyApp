@@ -22,7 +22,7 @@ import SwiftUI
 
 struct DetailRecipeView: View {
     
-    @ObservedObject var recipesViewModel: RecipesViewModel
+    @ObservedObject var recipesViewModel: DetailRecipeViewModel
     @State var recipe: Recipe
     
     var body: some View {
@@ -38,14 +38,13 @@ struct DetailRecipeView: View {
                 InstructionView(recipesViewModel: recipesViewModel, recipe: $recipe)
                     .padding([.leading, .trailing], testyPaddingM)
             }
-            
         }
     }
 }
 
 struct DetailHeaderView: View {
     
-    @ObservedObject var recipesViewModel: RecipesViewModel
+    @ObservedObject var recipesViewModel: DetailRecipeViewModel
     @Binding var recipe: Recipe
         
     @State var showingShareSheet = false
@@ -109,7 +108,7 @@ struct DetailHeaderView: View {
 
 struct SectionView: View {
     
-    @ObservedObject var recipesViewModel: RecipesViewModel
+    @ObservedObject var recipesViewModel: DetailRecipeViewModel
     @Binding var recipe: Recipe
         
     var body: some View {
@@ -129,7 +128,7 @@ struct SectionView: View {
 
 struct InstructionView: View {
     
-    @ObservedObject var recipesViewModel: RecipesViewModel
+    @ObservedObject var recipesViewModel: DetailRecipeViewModel
     @Binding var recipe: Recipe
     
     var body: some View {

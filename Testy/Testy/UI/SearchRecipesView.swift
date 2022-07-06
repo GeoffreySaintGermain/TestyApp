@@ -19,9 +19,9 @@
 
 import SwiftUI
 
-struct SearchRecipeView: View {
+struct SearchRecipesView: View {
     
-    @ObservedObject var recipesViewModel: RecipesViewModel
+    @StateObject var recipesViewModel: SearchRecipesViewModel
     
     @State private var selectedRecipe: Recipe?
     @State var searchText = ""
@@ -30,10 +30,12 @@ struct SearchRecipeView: View {
     var body: some View {
         NavigationView {
             GeometryReader { reader in
-                VStack {
+                VStack(spacing: 0) {
                     SearchBarView(recipeViewModel: recipesViewModel, searchText: $searchText, searching: $searching)
                     
-                    Divider()
+                    VStack(spacing: 0) {
+                        Divider()
+                    }
                     
                     RecipesDetailListView(recipesViewModel: recipesViewModel,
                                           recipes: recipesViewModel.recipies.results,
@@ -49,7 +51,7 @@ struct SearchRecipeView: View {
 
 struct SearchBarView: View {
     
-    @ObservedObject var recipeViewModel: RecipesViewModel
+    @ObservedObject var recipeViewModel: SearchRecipesViewModel
     
     @Binding var searchText: String
     @Binding var searching: Bool
@@ -84,7 +86,7 @@ struct SearchBarView: View {
 
 struct RecipesDetailListView: View {
     
-    @ObservedObject var recipesViewModel: RecipesViewModel
+    @ObservedObject var recipesViewModel: SearchRecipesViewModel
     let recipes: [Recipe]
     @Binding var searchText: String
     
@@ -100,7 +102,7 @@ struct RecipesDetailListView: View {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: testyPaddingS) {
                     ForEach(recipes, id: \.self) { recipe in
-                        RecipeRowView(recipesViewModel: recipesViewModel, recipe: recipe, selectedRecipe: $selectedRecipe, reader: reader)
+                        RecipeRowView(recipe: recipe, selectedRecipe: $selectedRecipe, reader: reader)
                     }
                     .listRowSeparator(.hidden)
                     .listRowInsets(EdgeInsets())
@@ -120,7 +122,7 @@ struct RecipesDetailListView: View {
                             recipesViewModel.loadMoreRecipe(input: searchText)
                         } else {
                             recipesViewModel.searchRecipe()
-                        }                        
+                        }
                     } label: {
                         Text("loadMore")
                     }
@@ -128,7 +130,7 @@ struct RecipesDetailListView: View {
                 }
             }
             .sheet(item: $selectedRecipe, content: { recipe in
-                DetailRecipeView(recipesViewModel: recipesViewModel, recipe: recipe)
+                DetailRecipeView(recipesViewModel: DetailRecipeViewModel(), recipe: recipe)
                 
             })
             .listStyle(PlainListStyle())
@@ -138,6 +140,6 @@ struct RecipesDetailListView: View {
 
 struct SearchRecipeView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchRecipeView(recipesViewModel: RecipesViewModel())
+        SearchRecipesView(recipesViewModel: SearchRecipesViewModel())
     }
 }

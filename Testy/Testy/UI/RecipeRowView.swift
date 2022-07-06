@@ -1,5 +1,5 @@
 //
-//  RecipesView.swift
+//  RecipeRowView.swift
 //  Testy
 //
 //  Copyright 2022 Geoffrey Saint-Germain
@@ -19,43 +19,8 @@
 
 import SwiftUI
 
-struct RecipesView: View {
-    
-    @ObservedObject var recipesViewModel: RecipesViewModel
-    let recipes: [Recipe]
-    
-    @State var selectedRecipe: Recipe?
-    
-    let columns = [
-           GridItem(.flexible()),
-           GridItem(.flexible())
-       ]
-    
-    var body: some View {
-        GeometryReader { reader in
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: testyPaddingS) {
-                    ForEach(recipes, id: \.self) { recipe in
-                        RecipeRowView(recipesViewModel: recipesViewModel, recipe: recipe, selectedRecipe: $selectedRecipe, reader: reader)
-                    }
-                    .listRowSeparator(.hidden)
-                    .listRowInsets(EdgeInsets())
-                    .padding(.top, testyPaddingS)
-                    .padding([.leading, .trailing], testyPaddingM)
-                }
-            }
-            .sheet(item: $selectedRecipe, content: { recipe in
-                DetailRecipeView(recipesViewModel: recipesViewModel, recipe: recipe)
-                
-            })
-            .listStyle(PlainListStyle())
-        }
-    }
-}
-
 struct RecipeRowView: View {
     
-    @ObservedObject var recipesViewModel: RecipesViewModel
     let recipe: Recipe
     
     @Binding var selectedRecipe: Recipe?
@@ -88,7 +53,7 @@ struct RecipeRowView: View {
                 selectedRecipe = recipe
             }
             .clipShape(RoundedRectangle(cornerRadius: 15))
-            .frame(width: (abs(reader.size.width - testyPaddingS) / 2), height: 200)
+            .frame(width: (abs(reader.size.width - (testyPaddingS * 2)) / 2), height: 200)
             .clipped()
             .aspectRatio(1, contentMode: .fit)
         }
