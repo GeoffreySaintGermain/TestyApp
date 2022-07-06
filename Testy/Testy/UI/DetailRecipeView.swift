@@ -2,7 +2,19 @@
 //  DetailRecipeView.swift
 //  Testy
 //
-//  Created by Saint Germain on 05/07/2022.
+//  Copyright 2022 Geoffrey Saint-Germain
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 import Foundation
@@ -62,7 +74,7 @@ struct DetailHeaderView: View {
                 Button {
                     showingShareSheet = true
                 } label: {
-                    Label("Share", systemImage: "square.and.arrow.up")
+                    Label("share", systemImage: "square.and.arrow.up")
                 }
                 .buttonStyle(.plain)
                 
@@ -75,7 +87,7 @@ struct DetailHeaderView: View {
                         recipesViewModel.addToFavorite(recipe)
                     }
                 } label: {
-                    recipesViewModel.favorites.contains(recipe) ? Label("Favorite", systemImage: "heart.fill") : Label("Favorite", systemImage: "heart")
+                    recipesViewModel.favorites.contains(recipe) ? Label("favorite", systemImage: "heart.fill") : Label("favorite", systemImage: "heart")
                 }
                 .buttonStyle(.plain)
             }
@@ -83,12 +95,11 @@ struct DetailHeaderView: View {
             
             Divider()
                             
-            Text(recipe.description)
-                .font(.footnote)
+            HTMLStringView(recipe.description)
+                
                 .padding(testyPaddingS)
                                                             
             Spacer()
-
         }
         .sheet(isPresented: $showingShareSheet, content: { ActivityViewController(itemsToShare: [recipe.description]) })
     }
@@ -103,8 +114,11 @@ struct SectionView: View {
         VStack(alignment: .leading) {
             ForEach(recipe.sections ?? [], id: \.self) { section in
                 ForEach(section.components, id: \.self) { component in
-                    Text(component.raw_text)
-                        .font(.caption)
+                    HStack {
+                        Text(component.raw_text)
+                            .font(.caption)
+                        Spacer()
+                    }                    
                 }
             }
         }

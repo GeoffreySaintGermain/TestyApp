@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  Testy
+
+  Created by Saint Germain on 06/07/2022.
+  
+*/
+
+"discoverNewRecipes" = "Discover new Recipes";
+"myFavoritesRecipes" = "My favorites Recipes";
+"share" = "Share";
+"favorite" = "Favorite";
+"SearchARecipe" = "Search a recipe";
+"search..." = "Search ...";
+"all" = "All";
+"search" = "Search";
+"favorites" = "Favorites";
