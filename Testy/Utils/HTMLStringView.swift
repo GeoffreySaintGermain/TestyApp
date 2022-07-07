@@ -52,6 +52,9 @@ struct HTMLStringView: UIViewRepresentable {
         DispatchQueue.main.async {
             if let attributeText = self.converHTML(text: text) {
                 textView.attributedText = attributeText
+                textView.linkTextAttributes = [NSAttributedString.Key.foregroundColor: (colorScheme == .dark ? UIColor.white : UIColor.black),
+                                               .underlineStyle: 0,
+                                               .underlineColor: UIColor.clear]
                 textView.textColor = (colorScheme == .dark ? UIColor.white : UIColor.black)
             } else {
                 textView.text = ""
